@@ -1,0 +1,7 @@
+.nnn {
+  display: none;
+}
+
+.main:hover .nnn {
+  display: block;
+}

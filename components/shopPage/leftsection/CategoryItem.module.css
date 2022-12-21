@@ -1,0 +1,94 @@
+.right {
+  animation-name: right;
+  animation-duration: 0.35s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes right {
+  0% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.down {
+  animation-name: down;
+  animation-duration: 0.35s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes down {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+.black {
+  display: none;
+}
+.black:checked + div::after {
+  content: "✓";
+  position: relative;
+  right: 67px;
+  color: white;
+}
+.red {
+  display: none;
+}
+.red:checked + div::after {
+  content: "✓";
+  position: relative;
+  right: 55px;
+  color: white;
+}
+.green {
+  display: none;
+}
+.green:checked + div::after {
+  content: "✓";
+  position: relative;
+  right: 70px;
+  color: white;
+}
+.blue {
+  display: none;
+}
+.blue:checked + div::after {
+  content: "✓";
+  position: relative;
+  right: 58px;
+  color: white;
+}
+.white {
+  display: none;
+}
+.white:checked + div::after {
+  content: "✓";
+  position: relative;
+  right: 69px;
+  color: black;
+}
+.yellow {
+  display: none;
+}
+.yellow:checked + div::after {
+  content: "✓";
+  position: relative;
+  right: 74px;
+  color: white;
+}
+
+.item::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: relative;
+  padding: 4px;
+  border: 2px solid white;
+  margin-right: 10px;
+  outline: 2px solid gray;
+}

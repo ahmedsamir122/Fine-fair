@@ -1,9 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Rajdhani:wght@400;600;700&family=Roboto:wght@400;500&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Rajdhani";
 }
 
 a {
@@ -23,4 +26,60 @@ a {
     color: white;
     background: black;
   }
+}
+
+.firstApp .slick-prev,
+.firstApp .slick-next {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+}
+
+.firstApp .slick-next {
+  right: 5%;
+}
+.firstApp .slick-prev {
+  left: 5%;
+}
+.firstApp .slick-dots {
+  bottom: 2rem;
+}
+
+/* the slides */
+/* .secondApp .slick-slide {
+  margin: 0 27px;
+} */
+
+/* the parent */
+/* .secondApp .slick-list {
+  margin: 0 -27px;
+} */
+
+.secondApp .slick-list {
+  margin: 0 -5px;
+}
+.secondApp .slick-slide > div {
+  padding: 0 5px;
+}
+.secondApp .first {
+  background-color: #ffe5e5;
+}
+.secondApp .second {
+  background-color: #fcebb2;
+}
+.secondApp .third {
+  background-color: #e4e4ff;
+}
+.secondApp .fourth {
+  background-color: #d9eeff;
+}
+.secondApp .fifth {
+  background-color: #ffdbf7;
+}
+.secondApp .sixth {
+  background-color: #e0f2ca;
+}
+
+.productSlider .slick-vertical .slick-slide.slick-active.slick-current {
+  border: 1px solid rgb(89, 0, 255);
 }
