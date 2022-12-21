@@ -25,7 +25,7 @@ const SectionTitle = (props) => {
         <li onClick={showMenuHandler} className="ml-4 cursor-pointer">
           <AiOutlineMenu />
         </li>
-        <li className=" pl-10 border-l ml-4">
+        <li className=" md:pl-10 pl-3 border-l ml-4">
           <select>
             <option>default Sorting</option>
             <option>Sort By Price</option>
