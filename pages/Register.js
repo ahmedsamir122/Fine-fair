@@ -9,6 +9,15 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import GoogleSignIn from "../components/googleSignin/GoogleSignIn";
+import { db } from "../Firebase";
+import {
+  setDoc,
+  collection,
+  doc,
+  updateDoc,
+  onSnapshot,
+  getDoc,
+} from "firebase/firestore";
 export default function Register() {
   const [user, setUser] = useState({});
   const router = useRouter();
@@ -28,7 +37,14 @@ export default function Register() {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
-        setUser(userCredential.user);
+        const user = userCredential.user;
+        console.log(user);
+        const docRef = doc(db, "users", user.uid);
+        const payload = {
+          cart: [],
+          wishlist: [],
+        };
+        setDoc(docRef, payload);
         router.push("/");
         // ...
       })

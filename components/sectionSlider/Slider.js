@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import img1 from "../../images/mobile-phone-cases-mockup-product-showcase.jpg";
-import img2 from "../../images/phone-mobile-connect-battery-power-bank.jpg";
+import img1 from "../../images/mainslider-1.jpg";
+import img2 from "../../images/mainslider-2.jpg";
 import img3 from "../../images/top-view-smartphone-with-keyboard-charger.jpg";
 import Image from "next/image";
 import { BiChevronRight } from "react-icons/bi";

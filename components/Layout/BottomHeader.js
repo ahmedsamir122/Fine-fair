@@ -140,7 +140,10 @@ const BottomHeader = () => {
         </p>
       </div>
       <div className="flex items-center h-14">
-        <button className="flex items-center   mr-4 rounded-full border px-3 py-2 whitespace-nowrap hover:bg-blue-900 transition ease-linear">
+        <button
+          onClick={() => router.push("/shop")}
+          className="flex items-center   mr-4 rounded-full border px-3 py-2 whitespace-nowrap hover:bg-blue-900 transition ease-linear"
+        >
           <p className="text-xs uppercase">view all</p>
           <HiOutlineArrowNarrowRight className="ml-4" />
         </button>
