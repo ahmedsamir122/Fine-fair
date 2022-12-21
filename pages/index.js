@@ -28,6 +28,7 @@ import { onAuthStateChanged } from "firebase/auth";
 export default function Home() {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cart);
+  const wishlist = useSelector((state) => state.wishlist.wishlist);
   const change = useSelector((state) => state.cart.change);
   const changeWishlist = useSelector((state) => state.wishlist.change);
 
@@ -53,7 +54,7 @@ export default function Home() {
       }
       if (currentUser) {
         if (change || changeWishlist) {
-          const id = user.uid;
+          const id = currentUser.uid;
           console.log("send");
           dispatch(sendCartData(cart, id, db));
           dispatch(sendWishlistData(wishlist, id, db));

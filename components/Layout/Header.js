@@ -4,11 +4,11 @@ import MiddleHeader from "./MiddleHeader";
 import BottomHeader from "./BottomHeader";
 const Header = () => {
   return (
-    <React.Fragment>
+    <section className="w-full">
       <TopHeader />
       <MiddleHeader />
       <BottomHeader />
-    </React.Fragment>
+    </section>
   );
 };
 

@@ -91,9 +91,9 @@ const MiddleHeader = () => {
   }, [wishlist]);
 
   return (
-    <div className="  bg-lime-500 lg:bg-transparent">
-      <div className="flex items-center justify-between container lg:w-full bg-lime-500 lg:bg-transparent m-auto cursor-pointer">
-        <Link href="/" className="lg:ml-4 shrink-0 flex items-center">
+    <div className="  bg-lime-500 lg:bg-transparent mx-auto ">
+      <div className="tess flex items-center justify-between container lg:w-full bg-lime-500 lg:bg-transparent m-auto cursor-pointer">
+        <div href="/" className="lg:ml-4 shrink-0 flex items-center">
           <AiOutlineMenu
             onClick={toggleModalHandler}
             className="lg:hidden w-10 h-10 text-white mr-3 "
@@ -105,7 +105,7 @@ const MiddleHeader = () => {
             height={50}
             className="hidden lg:block mr-1"
           />
-        </Link>
+        </div>
         <div className="lg:flex hidden w-2/4 rounded-md  overflow-hidden  ">
           <input
             type="text"
@@ -116,7 +116,7 @@ const MiddleHeader = () => {
             search
           </button>
         </div>
-        <div className="flex mr-5 lg:mr-16 ml-6 pt-3 lg:pt-0">
+        <div className="flex  lg:mr-16  pt-3 lg:pt-0">
           {user && <UserProfileSignIn />}
           {!user && <UserProfileSignOut />}
           <div className="relative">
@@ -132,7 +132,7 @@ const MiddleHeader = () => {
             )}
             {showWishlistItems && <WishlistItems />}
           </div>
-          <div className="flex ml-6 relative">
+          <div className="flex md:ml-6 relative ml-2 pr-5">
             <div onClick={cartRoutHandler} className=" relative">
               <BsCart3 className="hover:text-green-200 cursor-pointer shrink-0 lg:w-8 lg:h-8 w-6 h-6 lg:text-zinc-800 text-white font-bold" />
               {showCart && (
