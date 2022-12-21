@@ -7,7 +7,7 @@ import classes from "./CategoryItem.module.css";
 import { BsSearch } from "react-icons/bs";
 import style from "./BrandItem.module.css";
 const Brand = () => {
-  const [showDetail, setShowDetail] = useState(true);
+  const [showDetail, setShowDetail] = useState(false);
   const showDetailHandler = () => {
     setShowDetail(!showDetail);
   };

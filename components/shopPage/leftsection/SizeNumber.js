@@ -1,6 +1,6 @@
 import { useState } from "react";
 const SizeNumber = (props) => {
-  const [showActive, setShowActive] = useState(true);
+  const [showActive, setShowActive] = useState(false);
   const showActiveHandler = () => {
     setShowActive(!showActive);
   };

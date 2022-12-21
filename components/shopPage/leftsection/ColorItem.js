@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
 import classes from "./CategoryItem.module.css";
 const ColorItem = () => {
-  const [showDetail, setShowDetail] = useState(true);
+  const [showDetail, setShowDetail] = useState(false);
   const showDetailHandler = () => {
     setShowDetail(!showDetail);
   };

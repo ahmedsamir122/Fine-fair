@@ -8,7 +8,7 @@ import { BsSearch } from "react-icons/bs";
 import style from "./BrandItem.module.css";
 import SizeNumber from "./SizeNumber";
 const Size = () => {
-  const [showDetail, setShowDetail] = useState(true);
+  const [showDetail, setShowDetail] = useState(false);
   const showDetailHandler = () => {
     setShowDetail(!showDetail);
   };
