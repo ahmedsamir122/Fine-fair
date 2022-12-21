@@ -116,7 +116,7 @@ const MiddleHeader = () => {
             search
           </button>
         </div>
-        <div className="flex mr-2 lg:mr-16 ml-6">
+        <div className="flex mr-5 lg:mr-16 ml-6 pt-3 lg:pt-0">
           {user && <UserProfileSignIn />}
           {!user && <UserProfileSignOut />}
           <div className="relative">
