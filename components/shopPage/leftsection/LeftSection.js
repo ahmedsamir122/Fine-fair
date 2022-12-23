@@ -1,6 +1,6 @@
 import SearchItem from "./SearchItem";
-const LeftSection = () => {
-  return <SearchItem />;
+const LeftSection = (props) => {
+  return <SearchItem onFilter={props.onFilter} />;
 };
 
 export default LeftSection;

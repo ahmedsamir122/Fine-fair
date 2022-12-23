@@ -4,11 +4,47 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
 import classes from "./CategoryItem.module.css";
-const CategoryItem = () => {
+import { useQuery } from "react-query";
+import { TailSpin } from "react-loader-spinner";
+import CategoryItemOne from "./CategoryItemOne";
+import { useSelector } from "react-redux";
+const CategoryItem = (props) => {
   const [showDetail, setShowDetail] = useState(false);
+  const filter = useSelector((state) => state.filter.filter);
+  console.log(filter);
   const showDetailHandler = () => {
     setShowDetail(!showDetail);
   };
+
+  const fetchCategories = async () => {
+    const res = await fetch("https://dummyjson.com/products/categories");
+    return res.json();
+  };
+  const { isLoading, data, isError, error } = useQuery(
+    "categories",
+    fetchCategories
+  );
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center w-full h-52">
+        <TailSpin
+          height="20"
+          width="20"
+          color="#4fa94d"
+          ariaLabel="tail-spin-loading"
+          radius="1"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
+      </div>
+    );
+  }
+
+  if (isError) {
+    return <di>something went wrong .....</di>;
+  }
 
   return (
     <div>
@@ -32,62 +68,15 @@ const CategoryItem = () => {
             animate={{ height: 250 }}
             exit={{ height: 0 }}
             transition={{ duration: 0.35, type: "tween" }}
-            className=" overflow-hidden"
+            className=" overflow-auto"
           >
-            <div className="flex justify-start items-center py-2">
-              <input type="checkbox" className="mr-4 block" id="mobiles" />
-              <label
-                className=" font-Quicksand text-base font-semibold"
-                for="mobiles"
-              >
-                Mobiles
-              </label>
-            </div>
-            <div className="flex justify-start items-center py-2">
-              <input type="checkbox" className="mr-4 block" id="accessories" />
-              <label
-                className=" font-Quicksand text-base font-semibold"
-                for="accessories"
-              >
-                Accessories
-              </label>
-            </div>
-            <div className="flex justify-start items-center py-2">
-              <input type="checkbox" className="mr-4 block" id="tablets" />
-              <label
-                className=" font-Quicksand text-base font-semibold"
-                for="tablets"
-              >
-                Tablets
-              </label>
-            </div>
-            <div className="flex justify-start items-center py-2">
-              <input type="checkbox" className="mr-4 block" id="gaming" />
-              <label
-                className=" font-Quicksand text-base font-semibold"
-                for="gaming"
-              >
-                Gaming
-              </label>
-            </div>
-            <div className="flex justify-start items-center py-2">
-              <input type="checkbox" className="mr-4 block" id="laptops" />
-              <label
-                className=" font-Quicksand text-base font-semibold"
-                for="laptops"
-              >
-                Laptops
-              </label>
-            </div>
-            <div className="flex justify-start items-center py-2">
-              <input type="checkbox" className="mr-4 block" id="watches" />
-              <label
-                className=" font-Quicksand text-base font-semibold"
-                for="watches"
-              >
-                Watches
-              </label>
-            </div>
+            {data.map((category, index) => (
+              <CategoryItemOne
+                key={index}
+                name={category}
+                onFilter={props.onFilter}
+              />
+            ))}
           </motion.div>
         )}
       </AnimatePresence>

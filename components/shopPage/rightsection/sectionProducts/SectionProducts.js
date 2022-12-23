@@ -1,20 +1,41 @@
-import { useEffect } from "react";
 import { useQuery } from "react-query";
 import ProductPrice from "../../../ProductPrice";
 import { TailSpin } from "react-loader-spinner";
 import { Fragment } from "react";
 import ProductPriceMenu from "../../../ProductPriceMenu";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 
+const fetchProducts = async () => {
+  const res = await fetch("https://dummyjson.com/products");
+  return res.json();
+};
 const SectionProducts = (props) => {
-  const fetchProducts = async () => {
-    const res = await fetch("https://dummyjson.com/products");
-    return res.json();
-  };
+  const filter = useSelector((state) => state.filter.filter);
+
   const { isLoading, data, isError, error } = useQuery(
     "products",
     fetchProducts
   );
-  console.log(data);
+  const [productsArray, setProductsArray] = useState(data.products);
+
+  useEffect(() => {
+    if (filter.length === 0) {
+      setProductsArray(data.products);
+    } else {
+      setProductsArray(
+        data.products.filter((item) => {
+          return filter.some((fil) => fil === item.category);
+        })
+      );
+    }
+  }, [filter]);
+  console.log(productsArray);
+  console.log(
+    data.products.filter((item) => {
+      return filter.some((fil) => fil === item.category);
+    })
+  );
   if (isLoading) {
     return (
       <div className="flex justify-center items-center w-full h-56">
@@ -39,7 +60,7 @@ const SectionProducts = (props) => {
     <Fragment>
       {props.grid && (
         <div className="grid lg:grid-cols-4 sm:grid-cols-2 gap-10">
-          {data.products.map((item) => (
+          {productsArray.map((item) => (
             <ProductPrice
               id={item.id}
               key={item.id}

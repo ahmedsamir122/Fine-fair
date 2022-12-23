@@ -4,10 +4,10 @@ import ColorItem from "./ColorItem";
 import BrandItem from "./BrandItem";
 import SizeItem from "./SizeItem.js";
 import PriceItem from "./PriceItem";
-const SearchItem = () => {
+const SearchItem = (props) => {
   return (
     <React.Fragment>
-      <CategoryItem />
+      <CategoryItem onFilter={props.onFilter} />
       <ColorItem />
       <BrandItem />
       <SizeItem />
