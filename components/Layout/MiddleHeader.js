@@ -93,7 +93,7 @@ const MiddleHeader = () => {
   return (
     <div className="  bg-lime-500 lg:bg-transparent mx-auto ">
       <div className="tess flex items-center justify-between container lg:w-full bg-lime-500 lg:bg-transparent m-auto cursor-pointer">
-        <div href="/" className="lg:ml-4 shrink-0 flex items-center">
+        <Link href="/" className="lg:ml-4 shrink-0 flex items-center">
           <AiOutlineMenu
             onClick={toggleModalHandler}
             className="lg:hidden w-10 h-10 text-white mr-3 "
@@ -105,7 +105,7 @@ const MiddleHeader = () => {
             height={50}
             className="hidden lg:block mr-1"
           />
-        </div>
+        </Link>
         <div className="lg:flex hidden w-2/4 rounded-md  overflow-hidden  ">
           <input
             type="text"
