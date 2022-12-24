@@ -8,12 +8,16 @@ import { useQuery } from "react-query";
 import { TailSpin } from "react-loader-spinner";
 import CategoryItemOne from "./CategoryItemOne";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { filterActions } from "../../../store/filter";
 const CategoryItem = (props) => {
   const [showDetail, setShowDetail] = useState(false);
+  const dispatch = useDispatch();
   const filter = useSelector((state) => state.filter.filter);
   console.log(filter);
   const showDetailHandler = () => {
     setShowDetail(!showDetail);
+    dispatch(filterActions.clearFilter());
   };
 
   const fetchCategories = async () => {

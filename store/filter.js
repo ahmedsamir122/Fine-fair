@@ -13,6 +13,9 @@ const filterSlice = createSlice({
       state.filter.splice(index, 1);
       console.log(state.filter);
     },
+    clearFilter(state, action) {
+      state.filter = [];
+    },
   },
 });
 
