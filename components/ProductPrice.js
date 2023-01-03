@@ -42,7 +42,13 @@ const ProductPrice = (props) => {
     if (!user) {
       router.push("/Register");
     }
-    props.onNote();
+
+    const show = cart.find((item) => item.id === props.id);
+    if (show) {
+      props.onNote();
+    } else {
+      props.offNote();
+    }
   };
   useEffect(() => {
     const heart = wishlist.find((pro) => pro.id === item.id);
@@ -61,8 +67,12 @@ const ProductPrice = (props) => {
     if (!user) {
       router.push("/Register");
     }
-
-    props.onNote();
+    const show = wishlist.find((item) => item.id === props.id);
+    if (show) {
+      props.offNote();
+    } else {
+      props.onNote();
+    }
   };
 
   return (

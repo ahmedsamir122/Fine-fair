@@ -71,6 +71,7 @@ const SectionProducts = (props) => {
                 text={item.description}
                 title={item.title}
                 onNote={props.onNote}
+                offNote={props.offNote}
               />
             ))}
           {filter.length > 0 &&
