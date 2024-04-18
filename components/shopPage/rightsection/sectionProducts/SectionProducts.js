@@ -51,7 +51,7 @@ const SectionProducts = (props) => {
     return <di>something went wrong .....</di>;
   }
 
-  console.log(productsArray);
+  console.log(productsArray, data.products);
   console.log(
     data.products.filter((item) => {
       return filter.some((fil) => fil === item.category);
