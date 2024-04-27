@@ -47,6 +47,7 @@ const RightProductDetail = (props) => {
   }, [cart]);
 
   const toggleWishlistHandler = () => {
+    console.log("toggle");
     dispatch(wishlistActions.toggleItemToWishlist(item));
   };
 

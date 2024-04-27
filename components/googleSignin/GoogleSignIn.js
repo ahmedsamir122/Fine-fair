@@ -3,6 +3,15 @@ import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useRouter } from "next/router";
 import img from "../../images/google.png";
 import Image from "next/image";
+import { db } from "../../Firebase";
+import {
+  setDoc,
+  collection,
+  doc,
+  updateDoc,
+  onSnapshot,
+  getDoc,
+} from "firebase/firestore";
 
 const GoogleSignIn = () => {
   const router = useRouter();
@@ -15,6 +24,12 @@ const GoogleSignIn = () => {
         const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
+        const docRef = doc(db, "users", user.uid);
+        const payload = {
+          cart: [],
+          wishlist: [],
+        };
+        setDoc(docRef, payload);
         router.push("/shop");
         // ...
       })
