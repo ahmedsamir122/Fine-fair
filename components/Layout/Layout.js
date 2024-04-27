@@ -38,6 +38,7 @@ const Layout = (props) => {
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
       if (!currentUser) {
+        console.log("nouser");
         return;
       }
       if (currentUser) {
@@ -50,7 +51,7 @@ const Layout = (props) => {
         }
       }
     });
-  }, [cart, onAuthStateChanged]);
+  }, [cart, wishlist, onAuthStateChanged]);
 
   return (
     <React.Fragment>
